@@ -11,6 +11,8 @@
 ![Best Accuracy](https://img.shields.io/badge/Best%20Accuracy-81.5%25-brightgreen)
 ![Recall](https://img.shields.io/badge/Recall-88.2%25-blue)
 
+### 🚀 [**Live Demo → Try the App**](https://heartdiseasepredictionml1.streamlit.app/)
+
 </div>
 
 ---
@@ -34,7 +36,7 @@ The project compares **five supervised classifiers** and **K-Means clustering** 
 | 🧼 **Real-world cleaning** | Invalid zeros → missing, heavily-missing columns dropped, duplicates removed, outliers capped |
 | 🔒 **No data leakage** | Imputation, outlier limits and scaling are learned from the **training set only** |
 | 🤖 **Models compared** | Logistic Regression, KNN, Decision Tree, Random Forest, SVM + K-Means |
-| 📦 **Deployable** | Custom transformer + full pipeline saved as `.pkl`, served via Streamlit |
+| 📦 **Deployed** | Full pipeline saved as `.pkl` and live on Streamlit Community Cloud: [open the app](https://heartdiseasepredictionml1.streamlit.app/) |
 
 ---
 
@@ -183,6 +185,33 @@ SVC (RBF kernel)
 
 - **`IQRCapper`** is a custom scikit-learn transformer (`custom_transformers.py`) that learns the IQR limits from training data and clips outliers.
 - Outputs: `Model/heart_disease_pipeline.pkl` and `Model/metrics.json` (test metrics, feature ranges and defaults, scikit-learn version).
+
+---
+
+## 🌐 Live Web App
+
+🔗 **[heartdiseasepredictionml1.streamlit.app](https://heartdiseasepredictionml1.streamlit.app/)**
+
+The Streamlit app loads the saved pipeline and lets a user enter the 11 clinical features through a simple form (dropdowns for categorical fields, number inputs with the valid range shown for each field). Clicking **Predict** returns whether heart disease is predicted.
+
+**Try these example inputs**
+
+| Field | High-risk example | Low-risk example |
+|---|---|---|
+| Age | 62 | 35 |
+| Sex | 1 - Male | 0 - Female |
+| Chest Pain Type | 4 - Asymptomatic | 2 - Atypical angina |
+| Resting Blood Pressure | 145 | 110 |
+| Serum Cholesterol | 260 | 180 |
+| Fasting Blood Sugar > 120 | 0 - No | 0 - No |
+| Resting ECG Result | 0 - Normal | 0 - Normal |
+| Max Heart Rate Achieved | 110 | 170 |
+| Exercise-Induced Angina | 1 - Yes | 0 - No |
+| ST Depression | 2.5 | 0.0 |
+| Slope of Peak ST Segment | 2 - Flat | 1 - Upsloping |
+| **Prediction** | **Disease** | **No disease** |
+
+> ⚠️ This tool is for educational purposes only and is not a substitute for professional medical diagnosis.
 
 ---
 
